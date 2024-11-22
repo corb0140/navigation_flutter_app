@@ -30,6 +30,7 @@ class MainApp extends State<MyApp> {
         colorScheme: ThemeData.light().colorScheme.copyWith(
               primary: Colors.white,
               secondary: Colors.red,
+              tertiary: Colors.black,
             ),
         textTheme: ThemeData.light().textTheme.copyWith(
               headlineLarge:

@@ -1,4 +1,5 @@
 import 'dart:convert';
+// ignore: unused_import
 import 'dart:io';
 import 'api_key.dart';
 
@@ -67,12 +68,15 @@ class _MyWidgetState extends State<DataScreen> {
 
   Future<List<Data>> fetchData() async {
     var response = await http.get(Uri.parse(
-        'https://api.themoviedb.org/3/discover/movie?api_key=$tmdbApiKey'));
+        'https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=star+wars'));
 
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body) as Map<String, dynamic>;
       final results = jsonResponse['results'] as List<dynamic>;
-      return results.map((dynamic data) => Data.fromJson(data)).toList();
+      return results
+          .take(20)
+          .map((dynamic data) => Data.fromJson(data))
+          .toList();
     } else {
       throw Exception('Failed to load data from the internet');
     }
