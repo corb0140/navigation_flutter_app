@@ -28,8 +28,8 @@ class MainApp extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ThemeData.light().colorScheme.copyWith(
-              primary: Colors.blue,
-              secondary: Colors.green,
+              primary: Colors.white,
+              secondary: Colors.black,
             ),
         textTheme: ThemeData.light().textTheme.copyWith(
               headlineLarge:
@@ -44,6 +44,7 @@ class MainApp extends State<MyApp> {
           ),
           body: pages[pageIndex], // Display the selected page
           bottomNavigationBar: NavigationBar(
+            indicatorColor: Colors.red,
             destinations: const [
               NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
               NavigationDestination(
@@ -51,10 +52,10 @@ class MainApp extends State<MyApp> {
               NavigationDestination(
                   icon: Icon(Icons.contacts), label: 'Contacts'),
             ],
-            selectedIndex: pageIndex, // The current page index
+            selectedIndex: pageIndex,
             onDestinationSelected: (int index) {
               setState(() {
-                pageIndex = index; // Update the selected page index
+                pageIndex = index; //
               });
             },
           )),

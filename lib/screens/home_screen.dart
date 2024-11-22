@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             'Mark Corbin'.toUpperCase(),
                             style: textTheme.headlineLarge
-                                ?.copyWith(color: colorScheme.onPrimary),
+                                ?.copyWith(color: colorScheme.primary),
                           ))))),
         ],
       ),
