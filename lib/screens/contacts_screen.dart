@@ -30,31 +30,72 @@ class _MyWidgetState extends State<ContactsScreen> {
                   ?.copyWith(color: colorScheme.secondary),
             ),
             TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'What do people call you?',
-                ),
+                decoration: InputDecoration(
+                    labelText: 'What do people call you?',
+                    labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
+                    focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.green, // Active text field border color
+                    ))),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Please enter your name';
                   }
                   return null; //means no error
                 },
                 onSaved: (String? value) {
                   _data.name = value ?? '';
                 }),
+            const SizedBox(height: 116.0),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'What email can we reach you at?',
-              ),
-            ),
+                decoration: InputDecoration(
+                    labelText: 'What email can we reach you at?',
+                    labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
+                    focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.green, // Active text field border color
+                    ))),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null; //means no error
+                },
+                onSaved: (String? value) {
+                  _data.email = value ?? '';
+                }),
+            const SizedBox(height: 116.0),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Request Message',
-              ),
-            ),
+                decoration: InputDecoration(
+                    labelText: 'Request Message',
+                    labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
+                    focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.green, // Active text field border color
+                    ))),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a message';
+                  }
+                  return null; //means no error
+                },
+                onSaved: (String? value) {
+                  _data.message = value ?? '';
+                }),
+            const SizedBox(height: 56.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(250, 36),
+                  backgroundColor: Colors.red),
               onPressed: () {
-                // Validate the form
+                if (_formStateKey.currentState?.validate() ?? false) {
+                  _formStateKey.currentState?.save();
+                  print('Name: ${_data.name}');
+                  print('Email: ${_data.email}');
+                  print('Message: ${_data.message}');
+                } else {
+                  print("Form is invalid");
+                }
               },
               child: Text('Submit',
                   style: textTheme.bodyMedium
