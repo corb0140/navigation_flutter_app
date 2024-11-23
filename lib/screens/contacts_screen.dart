@@ -85,7 +85,7 @@ class _MyWidgetState extends State<ContactsScreen> {
             const SizedBox(height: 56.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(250, 36),
+                  minimumSize: const Size(250, 40),
                   backgroundColor: Colors.red),
               onPressed: () {
                 if (_formStateKey.currentState?.validate() ?? false) {
@@ -97,9 +97,10 @@ class _MyWidgetState extends State<ContactsScreen> {
                   print("Form is invalid");
                 }
               },
-              child: Text('Submit',
-                  style: textTheme.bodyMedium
-                      ?.copyWith(color: colorScheme.tertiary)),
+              child: Text('Submit'.toUpperCase(),
+                  style: textTheme.bodyLarge?.copyWith(
+                      color: colorScheme.tertiary,
+                      fontWeight: FontWeight.bold)),
             ),
           ])),
     )));
