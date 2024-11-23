@@ -35,13 +35,13 @@ class _MyWidgetState extends State<ContactsScreen> {
                     labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
                     focusedBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(
-                      color: Colors.green, // Active text field border color
+                      color: Colors.green,
                     ))),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
                   }
-                  return null; //means no error
+                  return null;
                 },
                 onSaved: (String? value) {
                   _data.name = value ?? '';
@@ -53,7 +53,7 @@ class _MyWidgetState extends State<ContactsScreen> {
                     labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
                     focusedBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(
-                      color: Colors.green, // Active text field border color
+                      color: Colors.green,
                     ))),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
@@ -71,13 +71,13 @@ class _MyWidgetState extends State<ContactsScreen> {
                     labelStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
                     focusedBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(
-                      color: Colors.green, // Active text field border color
+                      color: Colors.green,
                     ))),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a message';
                   }
-                  return null; //means no error
+                  return null;
                 },
                 onSaved: (String? value) {
                   _data.message = value ?? '';
@@ -108,7 +108,6 @@ class _MyWidgetState extends State<ContactsScreen> {
 }
 
 class MyData {
-  //this is like a plain Object in JS to hold properties
   String name = "";
   String email = "";
   String message = "";
